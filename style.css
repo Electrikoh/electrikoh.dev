@@ -20,6 +20,13 @@ html, body {
 
     background-color: rgba(17, 17, 17, 0.473);
 }
+::-moz-selection {
+    background: #ffffff40;
+}
+::selection {
+    background: #ffffff40;
+}
+
 
 /* --------------- Navbar ------------------ */
 
