@@ -1,94 +1,189 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="./favicon.ico">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="./favicon.ico" />
     <title>Electrikoh</title>
-    
-    <!-- -------- SEO --------- -->
-    <meta name="description" content="Electrikoh's funny website">
-    <meta name="keywords" content="Electrikoh, Computer Science, Full Stack Developer, JavaScript, TypeScript, React, Vue, Docker, Rust, Slovenia, Student">
-    <meta name="author" content="Electrikoh">
 
-    <meta property="og:title" content="Electrikoh">
-    <meta property="og:description" content="Electrikoh's funny website">
-    <meta property="og:image" content="https://electrikoh.dev/images/electrikoh.png">
-    <meta property="og:url" content="https://electrikoh.dev">
-    <meta property="og:type" content="website">
+    <!-- -------- SEO --------- -->
+    <meta name="description" content="Electrikoh's funny website" />
+    <meta
+      name="keywords"
+      content="Electrikoh, Computer Science, Full Stack Developer, JavaScript, TypeScript, React, Vue, Docker, Rust, Slovenia, Student"
+    />
+    <meta name="author" content="Electrikoh" />
+
+    <meta property="og:title" content="Electrikoh" />
+    <meta property="og:description" content="Electrikoh's funny website" />
+    <meta
+      property="og:image"
+      content="https://electrikoh.dev/images/electrikoh.png"
+    />
+    <meta property="og:url" content="https://electrikoh.dev" />
+    <meta property="og:type" content="website" />
     <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "Person",
-            "name": "Electrikoh",
-            "url": "https://electrikoh.dev",
-            "image": "https://electrikoh.dev/images/electrikoh.png",
-            "sameAs": [
-                "https://github.com/Electrikoh",
-                "https://www.instagram.com/electrikoh",
-                "https://discord.gg/zJMUXEPF"
-            ]
-        }
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Electrikoh",
+        "url": "https://electrikoh.dev",
+        "image": "https://electrikoh.dev/images/electrikoh.png",
+        "sameAs": [
+          "https://github.com/Electrikoh",
+          "https://www.instagram.com/electrikoh",
+          "https://discord.gg/zJMUXEPF"
+        ]
+      }
     </script>
-</head>
-<body>
+    <!-- End SEO -->
+  </head>
+  <body>
     <div class="center">
-        <div class="wrapper">
-            <nav class="navbar">
-                <h1 class="navbar-title"><a href="index.html">electrikoh.dev</a></h1>
-                <ul class="navbar-menu" id="navbar-menu">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="./pages/projects/projects.html">Projects</a></li>
-                    <li><a href="./pages/blog/blog.html">Blog</a></li>
-                    <li><a href="./pages/about/about.html">About</a></li>
-                    <li><a href="./pages/contact/contact.html">Contact</a></li>
-                </ul>
-            </nav>
-            <section class="intro">
-                <div class="intro-image">
-                    <img src="images/electrikoh.png" alt="electrikoh.png">
-                </div>  
-                <div class="intro-text">
-                    <h1 style="font-size: 2rem; margin: 0px;">Heya,</h1>
-                    <p>I'm an 18 year old student studying Computer Science in Slovenia.</p>
-                    <p>I like playing around with making random stuff. Some would consider me a full stack dev. Javascript is my most fluent language, but any other ones aren't a problem. Been making stuff for like 5 years now. I'm quite into philosophy and like to talk to nice people. I do my best to be open-minded, and maintain skepticism about everything. When im not coding i watch anime and do some gaming, and sometimes touch grass. Mostly use windows, but i've got experience using linux both in the server and as a primary os.</p>
-                </div>
-            </section>
-            <section class="info">
-                <div class="find-me">
-                    <h2>You can find me on:</h2>
-                    <ul>
-                        <li><img src="./svgs/github.svg" alt="github.svg" title="Github"><a href="https://github.com/Electrikoh" target="_blank">Github</a></li>
-                        <li><img src="./svgs/discord.svg" alt="discord.svg" title="Discord"><a href="https://discord.gg/zJMUXEPF" target="_blank">Discord</a></li>
-                        <li><img src="./svgs/instagram.svg" alt="instagram.svg" title="Instagram"><a href="https://www.instagram.com/electrikoh" target="_blank">Instagram</a></li>
-                        <li><img src="./svgs/email.svg" alt="email.svg" title="Email"><a href="mailto:contact@electrikoh.dev" target="_blank">contact@electrikoh.dev</a></li>
-                    </ul>
-                </div>
-                <hr class="seperator">
-                <div class="skills">
-                    <h2>Experience</h2>
-                    <ul>
-                        <li><img src="./svgs/react.svg" alt="react.svg" title="A JavaScript framework">React</li>
-                        <li><img src="./svgs/vue.svg" alt="vue.svg" title="A JavaScript framework">Vue</li>
-                        <li><img src="./svgs/typescript.svg" alt="typescript.svg" title="Javascript but with types">TypeScript</li>
-                        <li><img src="./svgs/python.svg" alt="python.svg" title="A high-level language for quick scripts">Python</li>
-                        <li><img src="./svgs/docker.svg" alt="docker.svg" title="A software for developing and running applications in containers">Docker</li>
-                        <li><img src="./svgs/database.svg" alt="databases.svg" title="Databases such as MySQL, PostgreSQL, MariaDB">Databases</li>
-                        <li><img src="./svgs/rust.svg" alt="rust.svg" title="A low-level language focused on safety and performance">Rust</li>
-                        <li><img src="./svgs/nuxt.svg" alt="nuxt.svg" title="A framework for creating Vue.js applications">Nuxt</li>
-                        
-                    </ul>
-                </div>
-            </section>
-            <div class="blue-stripe"></div>
-        </div>
+      <div class="wrapper">
+        <nav class="navbar">
+          <h1 class="navbar-title"><a href="index.html">electrikoh.dev</a></h1>
+          <ul class="navbar-menu" id="navbar-menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="./pages/projects/projects.html">Projects</a></li>
+            <li><a href="./pages/blog/blog.html">Blog</a></li>
+            <li><a href="./pages/about/about.html">About</a></li>
+          </ul>
+        </nav>
+        <section class="intro">
+          <div class="intro-image">
+            <img src="images/electrikoh.png" alt="electrikoh.png" />
+          </div>
+          <div class="intro-text">
+            <h1 style="font-size: 2rem; margin: 0px">Heya,</h1>
+            <p>
+              I'm an 18 year old student studying Computer Science in Slovenia.
+            </p>
+            <p>
+              I like playing around with making random stuff. Some would
+              consider me a full stack dev. Javascript is my most fluent
+              language, but any other ones aren't a problem. Been making stuff
+              for like 5 years now. I'm quite into philosophy and like to talk
+              to nice people. I do my best to be open-minded, and maintain
+              skepticism about everything. When im not coding i watch anime and
+              do some gaming, and sometimes touch grass. Mostly use windows, but
+              i've got experience using linux both in the server and as a
+              primary os.
+            </p>
+          </div>
+        </section>
+        <section class="info">
+          <div class="find-me">
+            <h2>You can find me on:</h2>
+            <ul>
+              <li>
+                <img
+                  src="./svgs/github.svg"
+                  alt="github.svg"
+                  title="Github"
+                /><a href="https://github.com/Electrikoh" target="_blank"
+                  >Github</a
+                >
+              </li>
+              <li>
+                <img
+                  src="./svgs/discord.svg"
+                  alt="discord.svg"
+                  title="Discord"
+                /><a href="https://discord.gg/dDZqUj5uXn" target="_blank"
+                  >Discord</a
+                >
+              </li>
+              <li>
+                <img
+                  src="./svgs/instagram.svg"
+                  alt="instagram.svg"
+                  title="Instagram"
+                /><a href="https://www.instagram.com/electrikoh" target="_blank"
+                  >Instagram</a
+                >
+              </li>
+              <li>
+                <img src="./svgs/email.svg" alt="email.svg" title="Email" /><a
+                  href="mailto:contact@electrikoh.dev"
+                  target="_blank"
+                  >contact@electrikoh.dev</a
+                >
+              </li>
+            </ul>
+          </div>
+          <hr class="seperator" />
+          <div class="skills">
+            <h2>Experience</h2>
+            <ul>
+              <li>
+                <img
+                  src="./svgs/react.svg"
+                  alt="react.svg"
+                  title="A JavaScript framework"
+                />React
+              </li>
+              <li>
+                <img
+                  src="./svgs/vue.svg"
+                  alt="vue.svg"
+                  title="A JavaScript framework"
+                />Vue
+              </li>
+              <li>
+                <img
+                  src="./svgs/typescript.svg"
+                  alt="typescript.svg"
+                  title="Javascript but with types"
+                />TypeScript
+              </li>
+              <li>
+                <img
+                  src="./svgs/python.svg"
+                  alt="python.svg"
+                  title="A high-level language for quick scripts"
+                />Python
+              </li>
+              <li>
+                <img
+                  src="./svgs/docker.svg"
+                  alt="docker.svg"
+                  title="A software for developing and running applications in containers"
+                />Docker
+              </li>
+              <li>
+                <img
+                  src="./svgs/database.svg"
+                  alt="databases.svg"
+                  title="Databases such as MySQL, PostgreSQL, MariaDB"
+                />Databases
+              </li>
+              <li>
+                <img
+                  src="./svgs/rust.svg"
+                  alt="rust.svg"
+                  title="A low-level language focused on safety and performance"
+                />Rust
+              </li>
+              <li>
+                <img
+                  src="./svgs/nuxt.svg"
+                  alt="nuxt.svg"
+                  title="A framework for creating Vue.js applications"
+                />Nuxt
+              </li>
+            </ul>
+          </div>
+        </section>
+        <div class="blue-stripe"></div>
+      </div>
     </div>
     <script>
-        function toggleMenu() {
-            const navbarMenu = document.getElementById('navbar-menu');
-            navbarMenu.classList.toggle('show');
-        }
+      function toggleMenu() {
+        const navbarMenu = document.getElementById("navbar-menu");
+        navbarMenu.classList.toggle("show");
+      }
     </script>
-</body>
+  </body>
 </html>

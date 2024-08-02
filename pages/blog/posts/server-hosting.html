@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="posts.css" />
+    <link rel="icon" href="../../../images/electrikoh.png" />
+    <title>Electrikoh - Blog</title>
+    <!-- Prism.js CSS -->
+    <link href="../../../scripts/prism-tomorrow.min.css" rel="stylesheet" />
+    <!-- -------- SEO --------- -->
+    <meta
+      name="description"
+      content="A quick dive on self-hosting and my experience with it"
+    />
+    <meta
+      name="keywords"
+      content="Electrikoh, Computer Science, Full Stack Developer, JavaScript, TypeScript, React, Vue, Docker, Rust, Slovenia, Student"
+    />
+    <meta name="author" content="Electrikoh" />
+
+    <meta property="og:title" content="Hosting your own server" />
+    <meta
+      property="og:description"
+      content="A quick dive on self-hosting and my experience with it "
+    />
+    <meta
+      property="og:image"
+      content="https://electrikoh.dev/images/electrikoh.png"
+    />
+    <meta property="og:url" content="https://electrikoh.dev" />
+    <meta property="og:type" content="website" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Electrikoh",
+        "url": "https://electrikoh.dev",
+        "image": "https://electrikoh.dev/images/electrikoh.png",
+        "sameAs": [
+          "https://github.com/Electrikoh",
+          "https://www.instagram.com/electrikoh",
+          "https://discord.gg/zJMUXEPF"
+        ]
+      }
+    </script>
+    <!-- End SEO -->
+  </head>
+  <body>
+    <div class="center">
+      <div class="wrapper">
+        <nav class="navbar">
+          <h1 class="navbar-title">
+            <a href="../../index.html">electrikoh.dev</a>
+          </h1>
+          <ul class="navbar-menu">
+            <li><a href="../../../index.html">Home</a></li>
+            <li><a href="../../projects/projects.html">Projects</a></li>
+            <li><a href="../blog.html">Blog</a></li>
+            <li><a href="../../about/about.html">About</a></li>
+            <li><a href="../../contact/contact.html">Contact</a></li>
+          </ul>
+        </nav>
+        <section class="content">
+          <article class="blog-post">
+            <header class="post-header">
+              <p class="post-date">Aug 2, 2024</p>
+              <h1 class="post-title">Hosting your own server</h1>
+              <h2 class="post-subtitle">
+                A quick dive on self-hosting and my experience with it
+              </h2>
+            </header>
+            <div class="post-content">
+              <h2>Why Self-Host?</h2>
+              <p>
+                Self-hosting is awesome! It gives you control over your data,
+                helps you learn cool tech stuff like Linux and Docker, and can
+                even save you money.
+              </p>
+              <p>
+                When I moved to Slovenia for my studies, I couldn't bring my
+                whole PC setup. Self-hosting let me use my home computer
+                remotely and learn a bunch of new things. It's been a fun and
+                rewarding experience.
+              </p>
+              <p>
+                If you have a spare computer and want to try something new, give
+                self-hosting a shot. Even if you don't know what you'll use your
+                server for, it'll eventually come in handy and the experience
+                you get will be valuable.
+              </p>
+              <p>
+                In this blogpost, i'll explain how to setup your machine to host
+                Ubuntu Server, and containarise everything with
+                <strong>Docker</strong>. We will also host a service called
+                <a href="https://www.usememos.com/" target="_blank">Memos</a>
+                and use <strong>Caddy</strong> to reverse proxy it to your
+                domain.
+              </p>
+              <h2>Ubuntu server</h2>
+
+              <p>
+                As you know, a server is just like a regular old pc, with a few
+                caveats. You'll first need to install some sort of operating
+                system that's suitable for a server.
+              </p>
+              <p>
+                There's a lot of options when choosing your os, but some of the
+                more popular ones include : Ubuntu Server, Debian, Fedora
+                Server, Arch Linux, Windows Server. I personally recommend
+                <strong>Ubuntu Server</strong>, since it has everything you need
+                without too much setup
+              </p>
+              <p>
+                Simply get a USB and flash the
+                <a href="https://ubuntu.com/download/server" target="_blank"
+                  >Ubuntu ISO</a
+                >
+                file onto it using
+                <a href="https://rufus.ie/en/" target="_blank">Rufus</a>. If you
+                don't know how, just google it.
+              </p>
+              <p>
+                Don't forget to <strong>back up your data</strong>, on a
+                seperate drive, or however you want. Triple check everything.
+              </p>
+              <p>
+                Now - plug the USB into your soon-to-be server and reboot into
+                the Boot Menu (or BIOS). Select to boot from the USB. You'll be
+                prompted with the Ubuntu server setup. Just follow that and
+                you'll be fine. Make sure to install <strong>OpenSSH</strong>.
+              </p>
+              <h2>Setting up Docker</h2>
+
+              <p>
+                In order to run your services or whatever, it's good practice to
+                containerize everything in it's own docker container. This will
+                help with management down the line and helps with security as
+                well.
+              </p>
+              <p>
+                You can install docker by running the commands below. They are
+                taken from the
+                <a
+                  href="https://docs.docker.com/engine/install/ubuntu/"
+                  target="_blank"
+                  >official docker page</a
+                >
+              </p>
+              <pre><code class="language-bash">sudo apt-get update
+sudo apt-get install ca-certificates curl
+sudo install -m 0755 -d /etc/apt/keyrings
+sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+sudo chmod a+r /etc/apt/keyrings/docker.asc</code></pre>
+              <h2>Setting Up Caddy</h2>
+
+              <p>
+                Once Docker is set up, the next step is to install Caddy in a
+                Docker container. Caddy is an open-source web server with
+                automatic HTTPS capabilities, and it's incredibly useful for
+                managing reverse proxies.
+              </p>
+
+              <p>
+                Make a folder for your projects, i have mine at
+                <i>/home/elec/containers</i>
+              </p>
+              <pre><code class="language-bash">mkdir containers</code></pre>
+              <p>
+                To install Caddy, we're gonna make a docker compose file. Go to
+                the directory you created and make a folder <i>caddy</i> with a
+                file <i>compose.yml</i>
+              </p>
+              <pre><code class="language-bash">cd containers
+mkdir caddy
+cd caddy
+nano compose.yml</code></pre>
+              <p>
+                Put in the code below. If you don't understand what docker is
+                and how it works, you should learn about it, it's awesome and a
+                very important skill to have.
+              </p>
+              <pre><code class="language-yaml">services:
+  caddy:
+      image: docker.io/caddy:latest
+      network_mode: host
+      restart: always
+      volumes:
+        - ./data/config:/config:z
+        - ./data/data:/data/caddy:z
+        - ./Caddyfile:/etc/caddy/Caddyfile:ro</code></pre>
+
+              <p>
+                Next, create a <code>Caddyfile</code> in the same directory
+                <code class="language-bash">nano Caddyfile</code> with the
+                following content:
+              </p>
+              <pre><code class="language-text">memos.example.com {
+  reverse_proxy 127.0.0.1:5230
+}</code></pre>
+              <p>
+                This tells Caddy to reverse proxy requests from
+                <strong>memos.example.com</strong> to the Memos instance running
+                on port 5230. Replace the example with your domain, and make
+                sure to setup your DNS settings (Make an A record pointing to
+                your ip). And also make sure ports 443 and 80 are forwarded on
+                your router.
+              </p>
+              <p>Now, you can bring up the Caddy container by running:</p>
+              <pre><code class="language-bash">docker-compose up -d</code></pre>
+
+              <h2>Setting up Memos</h2>
+
+              <p>
+                With Caddy up and running, the final step is to set up the Memos
+                instance. Make <strong>another folder</strong> in your
+                containers and make a compose file
+              </p>
+              <pre><code class="language-bash">cd ..
+mkdir memos
+cd memos
+nano compose.yml</code></pre>
+              <p>And here's the compose :</p>
+              <pre><code class="language-yaml">version: '3'
+services:
+  memos:
+    image: ghcr.io/usememos/memos:latest
+    volumes:
+      - ./data:/var/opt/memos
+    ports:
+      - 127.0.0.1:5230:5230
+    restart: always</code></pre>
+              <p>
+                Update the environment variables as necessary for your Memos
+                setup. Then, bring up the entire stack by running:
+              </p>
+              <pre><code class="language-bash">docker-compose up -d</code></pre>
+              <p>
+                Now, your Memos instance should be accessible at your domain
+                with Caddy handling the reverse proxy.
+              </p>
+              <h2>Some useful commands</h2>
+              <p>
+                To restart caddy when you change something without downtime,
+                (make sure to run this in the caddy folder) you can use :
+              </p>
+              <pre><code class="language-bash">docker compose exec -w /etc/caddy caddy caddy reload</code></pre>
+              <p>
+                I also highly recommend you to use
+                <a href="https://fishshell.com/" target="_blank">fish</a>, a
+                very neat and based shell. But don't take it from me, check out
+                <a
+                  href="https://waitwhat.sh/blog/the_case_for_fish/"
+                  target="_blank"
+                  >this article</a
+                >
+                that my friend made about it. He's one of the people i've
+                learned from the most when it comes to technology.
+              </p>
+              <h2>Thank you</h2>
+
+              <p>
+                That's it! You've successfully set up a server with Docker,
+                Caddy, and a Memos instance. This setup can be extended to
+                include other services as well, making it a powerful base for
+                your self-hosting journey.
+              </p>
+              <p>
+                Thanks for taking the time to read this blogpost, hopefully it
+                helped you with something.
+              </p>
+              <p>
+                For any occuring issues, i recommend you to google it or ask
+                chatgpt, but if you really can't figure it out, you can contact
+                me i'll try to help you out.
+              </p>
+            </div>
+          </article>
+        </section>
+      </div>
+    </div>
+    <script src="../../../scripts/prism.min.js"></script>
+    <script src="../../../scripts/prism-bash.min.js"></script>
+  </body>
+</html>
