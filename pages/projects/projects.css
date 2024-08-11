@@ -5,19 +5,20 @@ body {
   padding: 0;
   margin: 0;
   font-family: "Fira Sans", monospace;
-  background: linear-gradient(135deg, #2a2a2a, #3a3a3a, #4a4a4a);
-  background-size: 300% 300%;
-  animation: gradientAnimation 200s linear infinite;
+  background: linear-gradient(135deg, #3a404d, #5b6375, #3a404d, #2c2f38);
+  background-size: 100% 1000%;
+  background-attachment: fixed;
 }
+
 @keyframes gradientAnimation {
   0% {
-    background-position: 0% 0%;
+    background-position: 0% 50%;
   }
   50% {
-    background-position: 100% 100%;
+    background-position: 100% 50%;
   }
   100% {
-    background-position: 0% 0%;
+    background-position: 0% 50%;
   }
 }
 .center {
@@ -29,6 +30,7 @@ body {
   width: 60%;
   height: 100%;
   background-color: rgba(17, 17, 17, 0.473);
+  padding-bottom: 60px;
 }
 ::-moz-selection {
   background: #ffffff40;
@@ -158,10 +160,6 @@ body {
 }
 .project-image {
   flex: 4;
-  transition: scale 0.2s;
-}
-.project-image:hover {
-  scale: 1.03;
 }
 
 .project-image img {
