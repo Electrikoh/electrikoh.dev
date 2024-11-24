@@ -1,0 +1,167 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #161920;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@keyframes moveUp {
+  0% {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.moveUpAni {
+  animation: moveUp 1s ease-out;
+}
+
+@keyframes ripple {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(2.5);
+    opacity: 0;
+  }
+}
+
+.ripple {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 50vw;
+  height: 50vw;
+  background: #5e5d5d1a;
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  animation: ripple 20s infinite ease-in-out;
+  overflow: hidden;
+}
+
+.ripple:nth-child(1) {
+  animation-delay: 0s;
+  overflow: hidden;
+}
+
+.ripple:nth-child(2) {
+  animation-delay: 2s;
+  overflow: hidden;
+}
+
+.ripple:nth-child(3) {
+  animation-delay: 4s;
+  overflow: hidden;
+}
+
+.group:hover img {
+  filter: invert(1) sepia(1) saturate(5) hue-rotate(200deg);
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+.navbar-slide {
+  animation: slideDown 0.8s ease-in-out;
+}
+
+.icon-hover {
+  transition: transform 0.3s ease;
+}
+.icon-hover:hover {
+  transform: rotate(20deg);
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.fadeIn {
+  animation: fadeIn 0.8s ease-out;
+}
+
+.hover-size {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.hover-size:hover {
+  transform: scale(1.05) rotate(3deg);
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
+}
+.tech-hover {
+  transition: transform 0.3s ease;
+}
+
+.tech-hover:hover img {
+  transform: translateY(-5px);
+}
+.project-hover {
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+.project-hover:hover {
+  transform: scale(1.02);
+  background: rgba(255, 255, 255, 0.1);
+}
+body {
+  --dot-bg: #26232b;
+  --dot-color: #6b7292;
+  --dot-size: 1px;
+  --dot-space: 50px;
+  background: linear-gradient(
+        90deg,
+        var(--dot-bg) calc(var(--dot-space) - var(--dot-size)),
+        transparent 1%
+      )
+      center / var(--dot-space) var(--dot-space),
+    linear-gradient(
+        var(--dot-bg) calc(var(--dot-space) - var(--dot-size)),
+        transparent 1%
+      )
+      center / var(--dot-space) var(--dot-space),
+    var(--dot-color);
+}
+
+.title {
+  transition: scale 0.2s ease;
+}
+.title:hover {
+  scale: 1.03;
+}
+.wrapper-1 {
+  overflow: hidden;
+}
+.wrapper-1,
+.amogus {
+  overflow: hidden; /* Prevent overflow caused by animations */
+}
