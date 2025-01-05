@@ -60,8 +60,8 @@ export default function Home() {
                   { name: "Python", icon: "/svgs/python.svg" },
                   { name: "Rust", icon: "/svgs/rust.svg" },
                   { name: "Docker", icon: "/svgs/docker.svg" },
-                  // { name: "Git", icon: "/svgs/git.svg" },
-                  { name: "Blockchain", icon: "/svgs/blockchain.svg" },
+                  { name: "Git", icon: "/svgs/git.svg" },
+                  // { name: "Blockchain", icon: "/svgs/blockchain.svg" },
                 ].map((tech, index) => (
                   <div
                     key={index}
